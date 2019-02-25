@@ -11,15 +11,38 @@ import org.junit.Test;
 
 public class MybatisTest {
 
+	/**
+	 * 查询学生
+	 * @throws IOException
+	 */
 	@Test
 	public void GetStudentById() throws IOException {
 		SqlSessionFactoryBuilder sb = new SqlSessionFactoryBuilder();
 		InputStream inputStream = Resources.getResourceAsStream("SqlMapConfig.xml");
 		SqlSessionFactory sqlSessionFactory= sb.build(inputStream);
 		SqlSession sqlSession= sqlSessionFactory.openSession();
-		Object obj=sqlSession.selectOne("student.getStudentById");
+		Object obj=sqlSession.selectOne("student.getStudentById","1");
 		System.out.println(obj);
  
 		sqlSession.close();
 	}
+	
+	/**
+	 * 插入学生
+	 * @throws IOException
+	 */
+	@Test
+	public void AddStuent() throws IOException {
+		SqlSessionFactoryBuilder sb = new SqlSessionFactoryBuilder();
+		InputStream inputStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+		SqlSessionFactory sqlSessionFactory= sb.build(inputStream);
+		SqlSession sqlSession= sqlSessionFactory.openSession();
+		Object obj=sqlSession.selectOne("student.addStudent","1");
+		
+		System.out.println(obj);
+ 
+		sqlSession.close();
+	}
+	
+	
 }

@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="student">
 
 	<select id="getStudentById" 
-		resultType="com.yuwen.mybaits.StudentModel">
-		select * from ts_student where student_id=2
+		resultType="com.yuwen.mybaits.StudentModel" parameterType="String">
+		select * from ts_student where student_id=#{id}
 	</select>
 
 </mapper>
