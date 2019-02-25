@@ -16,6 +16,7 @@ INSERT INTO ts_student VALUES('1','宁采臣',16,1,now());
 INSERT INTO ts_student VALUES('2','小倩',17,1,now());
 INSERT INTO ts_student VALUES('3','黑山老妖',18,1,now());
 INSERT INTO ts_student VALUES('4','燕赤侠',19,1,now());
+INSERT INTO ts_student VALUES('4','test',19,1,now());
 
 
 SET SQL_SAFE_UPDATES = 0;
