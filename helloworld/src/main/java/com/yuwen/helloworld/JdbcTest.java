@@ -20,19 +20,20 @@ public class JdbcTest {
 	public void select() {
 
 		try {
-			
+
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String url = "jdbc:mysql://192.168.100.250:3306/information_schema?characterEncoding=utf-8&useSSL=false&useAffectedRows=true&serverTimezone=GMT%2B8";
-			Connection conn = DriverManager.getConnection(url, "root", "ktwl123456");
-			PreparedStatement ps = conn.prepareStatement("select * from tables");
+			String url = "jdbc:mysql://localhost:3306/school_db?characterEncoding=utf-8&useSSL=false&useAffectedRows=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
+			Connection conn = DriverManager.getConnection(url, "root", "123456");
+			PreparedStatement ps = conn.prepareStatement("select * from ts_student");
 			ResultSet rs = ps.executeQuery();
-			while(rs.next())
-			{
-			System.out.println(rs.getString(1));	
-			System.out.println(rs.getString(2));	
-			System.out.println("========");
+			int count = rs.getMetaData().getColumnCount();
+			while (rs.next()) {
+				for (int i = 1; i < count + 1; i++) {
+					System.out.println(rs.getString(i));
+				}
+
+				System.out.println("========");
 			}
-			
 
 		} catch (Exception e) {
 
