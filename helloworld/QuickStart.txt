@@ -2,4 +2,4 @@
 2.切换窗口 ctrl+F6
 3.生成方法的返回类型 Ctrl+2 F
 4.alt+shift+s 生成get，set toString
-
+5.shift+Enter 在下一行添加一个空行
