@@ -29,10 +29,10 @@ public class JdbcTest {
 			int count = rs.getMetaData().getColumnCount();
 			while (rs.next()) {
 				for (int i = 1; i < count + 1; i++) {
-					System.out.println(rs.getString(i));
+					System.out.print(rs.getString(i)+"--");
 				}
 
-				System.out.println("========");
+				System.out.println();
 			}
 
 		} catch (Exception e) {

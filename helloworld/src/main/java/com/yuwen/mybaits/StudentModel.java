@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class StudentModel {
 
-	private String student_id;
+	private int  student_id;
 	
 	private String name;
 	
@@ -14,11 +14,11 @@ public class StudentModel {
 	
 	private Date create_time;
 
-	public String getStudent_id() {
+	public int getStudent_id() {
 		return student_id;
 	}
 
-	public void setStudent_id(String student_id) {
+	public void setStudent_id(int student_id) {
 		this.student_id = student_id;
 	}
 
