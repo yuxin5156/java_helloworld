@@ -19,3 +19,17 @@ INSERT INTO `ts_student`(`name`,`age`,`gender`,`create_time`) VALUES ('黑山老
 SELECT * FROM ts_student
 
 SET SQL_SAFE_UPDATES = 0;
+
+
+CREATE TABLE `ts_order`(
+id INT PRIMARY KEY NOT NULL auto_increment,-- 主键id
+student_id varchar(50) NOT NULL, -- 订单名称
+name varchar(50) NOT NULL, -- 订单名称
+address varchar(50) NOT NULL, -- 配送地址
+create_time datetime NOT NULL -- 创建时间
+) ;
+
+INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES ('聂小倩',0,now());
+INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES ('宁采臣',1,now());
+INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES ('燕赤侠',1,now());
+INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES ('黑山老妖',0,now());
