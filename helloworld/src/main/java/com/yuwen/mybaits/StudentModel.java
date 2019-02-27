@@ -17,6 +17,16 @@ public class StudentModel {
 	public int getStudent_id() {
 		return student_id;
 	}
+	
+	public int[] ids;
+
+	public int[] getIds() {
+		return ids;
+	}
+
+	public void setIds(int[] ids) {
+		this.ids = ids;
+	}
 
 	public void setStudent_id(int student_id) {
 		this.student_id = student_id;
