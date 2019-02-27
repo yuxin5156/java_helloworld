@@ -18,9 +18,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="addStudent"
-		parameterType="com.yuwen.mybaits.StudentModel" useGeneratedKeys="true" keyProperty="student_id">
-		<!-- 
-		插入同时返回主键id ,也可以在insert中配置useGeneratedKeys="true" keyProperty="student_id"-->
+		parameterType="com.yuwen.mybaits.StudentModel" useGeneratedKeys="true"
+		keyProperty="student_id">
+		<!-- 插入同时返回主键id ,也可以在insert中配置useGeneratedKeys="true" keyProperty="student_id" -->
 		<selectKey keyProperty="student_id" resultType="int"
 			order="AFTER">
 			select last_insert_id();
@@ -38,9 +38,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{gender},
 		#{create_time});
 	</insert>
-	
+
+	<update id="updateStudent"
+		parameterType="com.yuwen.mybaits.StudentModel">
+		UPDATE ts_student SET name=#{name} where student_id=#{student_id}
+	</update>
+
 	<delete id="removeStudentById" parameterType="int">
-	DELETE FROM  ts_student WHERE student_id=#{value}
+		DELETE FROM ts_student WHERE student_id=#{value}
 	</delete>
 
 </mapper>
