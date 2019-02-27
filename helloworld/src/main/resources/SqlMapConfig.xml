@@ -3,6 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
 	<!-- 配置resource属性可以从properties文件中获取 -->
 	<properties>
 		<property name="jdbc.driver" value="com.mysql.jdbc.Driver" />
@@ -11,6 +12,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<property name="jdbc.username" value="root" />
 		<property name="jdbc.password" value="123456" />
 	</properties>
+
+	<settings>
+		<!-- 打印查询语句 -->
+		<setting name="logImpl" value="STDOUT_LOGGING" />
+	</settings>
 
 	<!-- 别名配置 : 1.单个文件别名配置，不区分大小写 2. 包扫描 ，默认人类名，不区分大小写 -->
 	<!-- <typeAliases> <typeAlias type=""/> <package name=""/> </typeAliases> -->
