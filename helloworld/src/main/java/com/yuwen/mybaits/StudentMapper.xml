@@ -47,13 +47,65 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{item}
 		</foreach>
 	</select>
-	
-	
-	<!-- 一对一查询 -->
-	<resultMap type="" id=""></resultMap>
-	
-	<!-- 一对多查询 -->
-	<resultMap type="" id=""></resultMap>
 
+
+	<!-- 一对一关联查询 -->
+	<resultMap type="com.yuwen.mybaits.poco.Order"
+		id="order_student_map">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="studentId" column="student_id" />
+		<result property="address" column="address" />
+		<result property="createTime" column="create_time" />
+		<association property="student">
+			<id property="studentId" column="student_id" />
+			<result property="name" column="sname" />
+			<result property="age" column="age" />
+		</association>
+	</resultMap>
+
+	<select id="GetOrderWithStudent" resultMap="order_student_map">
+		select
+
+		a.student_id,
+		a.name sname,
+		a.age,
+		b.id,
+		b.name,
+		b.create_time,
+		b.address
+		from ts_student a,ts_order b
+		where a.student_id=b.student_id
+	</select>
+
+	<!-- 一对多查询 注意collection中要设置ofType-->
+	<resultMap type="com.yuwen.mybaits.poco.Student"
+		id="student_order_map">
+		<id property="studentId" column="student_id" />
+		<result property="name" column="sname" />
+		<result property="age" column="age" />
+		<result property="createTime" column="create_time" />
+		<collection property="orders" ofType="com.yuwen.mybaits.poco.Order">
+			<id property="id" column="id" />
+			<result property="name" column="name" />
+			<result property="studentId" column="student_id" />
+			<result property="address" column="address" />
+			<result property="createTime" column="ocreate_time" />
+		</collection>
+	</resultMap>
+	
+		<select id="GetStudentWithOrder" resultMap="student_order_map">
+		select
+		a.student_id,
+		a.name sname,
+		a.age,
+		a.create_time,
+		b.id,
+		b.name,
+		b.create_time ocreate_time,
+		b.address
+		from ts_student a,ts_order b
+		where a.student_id=b.student_id
+	</select>
 
 </mapper>

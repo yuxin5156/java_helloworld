@@ -25,6 +25,7 @@ public class JdbcTest {
 			String url = "jdbc:mysql://localhost:3306/school_db?characterEncoding=utf-8&useSSL=false&useAffectedRows=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
 			Connection conn = DriverManager.getConnection(url, "root", "123456");
 			PreparedStatement ps = conn.prepareStatement("select * from ts_student");
+			
 			ResultSet rs = ps.executeQuery();
 			int count = rs.getMetaData().getColumnCount();
 			while (rs.next()) {

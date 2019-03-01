@@ -29,7 +29,17 @@ address varchar(50) NOT NULL, -- 配送地址
 create_time datetime NOT NULL -- 创建时间
 ) ;
 
-INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES ('聂小倩',0,now());
-INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES ('宁采臣',1,now());
-INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES ('燕赤侠',1,now());
-INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES ('黑山老妖',0,now());
+INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES (1,'订单a','黑山口村a',now());
+INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES (1,'订单b','黑山口村b',now());
+INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES (3,'订单c','黑山口村c',now());
+INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES (3,'订单d','黑山口村d',now());
+
+
+
+
+
+
+
+
+
+

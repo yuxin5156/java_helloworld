@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
+import com.yuwen.mybaits.poco.Order;
+
 public class StudentMapperTest {
 
 	@Test
@@ -43,6 +45,31 @@ public class StudentMapperTest {
 		openSession.close();
 	
 	}
+	
+	@Test
+	public void GetOrderWithStudent() {
+		SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtils.getSqlSessionFactory();
+		SqlSession openSession = sqlSessionFactory.openSession();
+		StudentMapper studentMapper= openSession.getMapper(StudentMapper.class);
+		List<Order> orders = studentMapper.GetOrderWithStudent();
+		System.out.println(orders);
+		openSession.close();
+	
+	}
+	
+	@Test
+	public void GetStudentWithOrder() {
+		SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtils.getSqlSessionFactory();
+		SqlSession openSession = sqlSessionFactory.openSession();
+		StudentMapper studentMapper= openSession.getMapper(StudentMapper.class);
+		List<Order> students = studentMapper.GetStudentWithOrder();
+		System.out.println(students);
+		openSession.close();
+	
+	}
+	
+	
+	
 	
 
 }
