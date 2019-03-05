@@ -5,7 +5,7 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
-import com.yuwen.utils.IdCardUtils;
+import com.yuwen.utils.IdCardUtil;
 
 public class IdCardUtilsTest {
 
@@ -14,19 +14,19 @@ public class IdCardUtilsTest {
 	@Test
 	public void getSex() {
 
-		boolean sex = IdCardUtils.getSex(ID_CARD);
+		boolean sex = IdCardUtil.getSex(ID_CARD);
 		System.out.println(sex);
 	}
 
 	@Test
 	public void getAge() {
-		int result = IdCardUtils.getAge(ID_CARD);
+		int result = IdCardUtil.getAge(ID_CARD);
 		System.out.println(result + "岁");
 	}
 
 	@Test
 	public void getBirthDate() {
-		Calendar result = IdCardUtils.getBirthDate(ID_CARD);
+		Calendar result = IdCardUtil.getBirthDate(ID_CARD);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String ste = sdf.format(result.getTime());
 		System.out.println(ste);

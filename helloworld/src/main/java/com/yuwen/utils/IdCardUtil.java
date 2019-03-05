@@ -9,7 +9,7 @@ import java.util.Date;
  * @author yxf
  *
  */
-public class IdCardUtils {
+public class IdCardUtil {
 
 	/**
 	 * 获取性别
