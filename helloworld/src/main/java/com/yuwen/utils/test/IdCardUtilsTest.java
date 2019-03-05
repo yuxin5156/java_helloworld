@@ -31,5 +31,7 @@ public class IdCardUtilsTest {
 		String ste = sdf.format(result.getTime());
 		System.out.println(ste);
 	}
+	
+	
 
 }
