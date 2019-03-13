@@ -35,7 +35,22 @@ INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES (3,'�
 INSERT INTO `ts_order`(`student_id`,`name`,`address`,`create_time`) VALUES (3,'订单d','黑山口村d',now());
 
 
-
+--连接mysql时报：message from server: "Host '192.168.76.89' is not allowed to connect to this MySQL server
+--处理方案：
+--
+--1、先用localhost方式连接到MySQL数据库，然后使用MySQL自带的数据库mysql;
+--
+--          use mysql； 
+--          SET SQL_SAFE_UPDATES = 0;
+--
+--2、执行：select host from user where user = 'root';  发现，host的值就是localhost。
+--
+--     所以将它的值改掉：update user set host='%' where user = 'root'; 
+--
+--
+--3、修改完成后，执行：flush privileges;  
+--
+--     将修改内容生效，再次配置时，用IP地址或者localhost 就都能正常连接到MySQL数据库了。
 
 
 
