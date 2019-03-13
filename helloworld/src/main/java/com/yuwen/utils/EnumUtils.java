@@ -7,4 +7,5 @@ package com.yuwen.utils;
  */
 public class EnumUtils {
 
+	
 }
