@@ -5,6 +5,10 @@ import java.util.List;
 
 public class Student {
 
+	public Student() {}
+	
+	public Student(int age) {this.age=age;}
+	
 	private int studentId;
 	private String name;
 

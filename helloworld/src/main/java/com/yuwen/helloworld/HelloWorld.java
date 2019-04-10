@@ -1,6 +1,20 @@
 package com.yuwen.helloworld;
 
+import java.beans.BeanInfo;
+import java.beans.IntrospectionException;
+import java.beans.Introspector;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+
+import com.yuwen.mybaits.poco.Student;
 
 public class HelloWorld {
 
@@ -12,7 +26,7 @@ public class HelloWorld {
 	public void rtTest() {
 		String test = getTest();
 	}
-	
+
 	public static String hideSensitiveInfo(String plainText, int left, int right) {
 		String replaceChar = "*";
 		String result = "";
@@ -27,13 +41,40 @@ public class HelloWorld {
 		}
 		return result;
 	}
+
+	public static void main(String[] args) {
 	
-	public static void main(String[] args)
-	{
-	String result1=	hideSensitiveInfo("贵州省贵阳市观山湖区世纪城龙耀苑", 4, 4);
-	System.out.println(result1);
-	String result2=	hideSensitiveInfo("18786703675", 3, 4);
-	System.out.println(result2);
+		Student p=new Student();
+		p.setStudentId(1);
+		p.setAge(18);
+		p.setCreateTime(new Date());
+		p.setName("惠惠");
+		p.setGender(false);
+		
+		try {
+			BeanInfo beanInfo = Introspector.getBeanInfo(Student.class);
+			PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
+			
+		Arrays.stream(propertyDescriptors).forEach(r->{
+				try {
+					String filedName=r.getName();
+					if(!filedName.equals("class"))
+					{
+						System.out.println(filedName+":"+r.getReadMethod().invoke(p));
+					}
+				
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+			
+			
+		});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
